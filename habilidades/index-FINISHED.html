@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="style-FINISHED.css">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+</head>
+  <header>
+    <h1>Portafolio</h1>
+  </header>
+ <body>
+  <nav id="main" >
+    <ul>
+      <li class="logo"><a href="#">INICIO</a></li>
+      <li><a href="../index.html">About Me</a></li>
+      <li><a href="Habilidades/index-FINISHED.html">Habilidades</a></li>
+      <li><a href="../proyectos/index-FINISHED.html">Proyectos</a></li>
+      <li><a href="../habilidades/index-FINISHED.html">Redes</a></li>
+    </ul>
+  </nav>
+
+  </div>
+  
+    <div class="cuerpo">
+        <div class="div">
+            <div class="div-text">Python</div>
+            <div class="div-shadow"></div>
+          </div>
+          <div class="div">
+            <div class="div-text">JavaScript</div>
+            <div class="div-shadow"></div>
+          </div>
+          <div class="div">
+            <div class="div-text">HTML5 & CSS3</div>
+            <div class="div-shadow"></div>
+          </div>
+          <div class="div">
+            <div class="div-text">Git & Github</div>
+            <div class="div-shadow"></div>
+          </div>
+          <div class="div">
+            <div class="div-text">Excel</div>
+            <div class="div-text2">Avanzado</div>
+            <div class="div-shadow"></div>
+          </div>
+          <div class="div">
+            <div class="div-text">Java</div>
+            <div class="div-text2">Básico</div>
+            <div class="div-shadow"></div>
+          </div>
+          <div class="div">
+            <div class="div-text">.NET</div>
+            <div class="div-text2">Básico</div>
+            <div class="div-shadow"></div>
+          </div>
+          <div class="div">
+            <div class="div-text">React</div>
+            <div class="div-text2">Básico</div>
+            <div class="div-shadow"></div>
+          </div>
+          <div class="div">
+            <div class="div-text">Matlab</div>
+            <div class="div-shadow"></div>
+          </div>
+    </div>
+    <script>
+        let divs = document.querySelectorAll(".div");
+        divs.forEach((div) => {
+        
+        let divShadow = div.querySelector(".div-shadow");
+    
+        div.addEventListener('mousemove', (event) => {
+        // Show the shadow
+        divShadow.classList.add("active");
+        
+        // Set shadow position to cursor position
+        divShadow.style.left = (event.clientX - div.offsetLeft)+"px";
+        divShadow.style.top = (event.clientY - div.offsetTop)+"px";
+        });
+    
+        div.addEventListener('mouseout', (event) => {
+        // Show the shadow
+        divShadow.classList.remove("active");
+        });
+        });
+      </script>
+</body>
+</html>

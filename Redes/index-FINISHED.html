@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="style-FINISHED.css">
+  <script src="https://kit.fontawesome.com/9995f99cb7.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+  <header>
+    <h1>Portafolio</h1>
+  </header>
+ 
+  <nav id="main" >
+    <ul>
+      <li class="logo"><a href="#">INICIO</a></li>
+      <li><a href="../index.html">About Me</a></li>
+      <li><a href="../habilidades/index-FINISHED.html">Habilidades</a></li>
+      <li><a href="../proyectos/index-FINISHED.html">Proyectos</a></li>
+      <li><a href="#">Redes</a></li>
+    </ul>
+  </nav>
+
+   <div class="caja">
+    <ul class="wrapper">
+      <li class="icon linkedin">
+        <span class="tooltip">Linkedin</span>
+        <span><i class="fab fa-linkedin"href="https://www.linkedin.com/in/luis-antonio-martínez-b40721124">
+          <a href="https://www.linkedin.com/in/luis-antonio-martínez-b40721124"></a>
+        </i></span>
+      </li>
+      <li class="icon twitter">
+        <span class="tooltip">Twitter</span>
+        <span><i class="fab fa-twitter"></i></span>
+      </li>
+      <li class="icon instagram">
+        <span class="tooltip">Instagram</span>
+        <span><i class="fab fa-instagram"></i></span>
+      </li>
+      <li class="icon github">
+        <span class="tooltip">Github</span>
+        <span><i class="fab fa-github"></i></span>
+      </li>
+      <li class="icon youtube">
+        <span class="tooltip">Youtube</span>
+        <span><i class="fab fa-youtube"></i></span>
+      </li>
+    </ul>
+   </div>
+
+  <script>
+    // Regresa al inico
+    const nav = document.querySelector('#main');
+    let topOfNav = nav.offsetTop;
+    function fixNav() {
+      if (window.scrollY >= topOfNav) {
+        document.body.style.paddingTop = nav.offsetHeight + 'px';
+        document.body.classList.add('fixed-nav');
+      } else {
+        document.body.classList.remove('fixed-nav');
+        document.body.style.paddingTop = 0;
+      }
+    }
+
+    window.addEventListener('scroll', fixNav);
+  /*Luz de navagacion*/
+  const triggers = document.querySelectorAll('a');
+  const highlight = document.createElement('span');
+  highlight.classList.add('highlight');
+  document.body.appendChild(highlight);
+
+  function highlightLink() {
+    const linkCoords = this.getBoundingClientRect();
+    console.log(linkCoords);
+    const coords = {
+      width: linkCoords.width,
+      height: linkCoords.height,
+      top: linkCoords.top + window.scrollY,
+      left: linkCoords.left + window.scrollX
+    };
+
+    highlight.style.width = `${coords.width}px`;
+    highlight.style.height = `${coords.height}px`;
+    highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
+
+  }
+
+  triggers.forEach(a => a.addEventListener('mouseenter', highlightLink));
+  /*Luz de nav*/
+  </script>
+
+
+</body>
+</html>

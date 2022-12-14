@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="style-FINISHED.css">
+  <link rel="stylesheet" href="./styles/style.css">
+</head>
+
+<body>
+  <header>
+    <h1>Portafolio</h1>
+  </header>
+  <nav id="main">
+    <ul>
+      <li class="logo"><a href="#">INICIO</a></li>
+      <li><a href="../index.html">About Me</a></li>
+      <li><a href="../habilidades/index-FINISHED.html">Habilidades</a></li>
+      <li><a href="#">Proyectos</a></li>
+      <li><a href="../Redes/index-FINISHED.html">Redes</a></li>
+    </ul>
+  </nav>
+  <div class="cuerpo">
+    <div class="conteudo-geral js-conteudo-geral">
+      <div class="componente-interno-geral">
+        <div class="componente">
+          <div class="componente-sem-rolagem">
+            <div class="componente-interno">
+              <div class="componente-fundo-imagem"></div>
+              <div class="componente-visual-inicial">
+                <h2 class="componente-titulo">Labview</h2>
+              </div>
+              <div class="componente-content">
+                <div class="componente-text">Labview</div>
+                <div class="componente-botao-fechar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="componente">
+          <div class="componente-sem-rolagem">
+            <div class="componente-interno">
+              <div class="componente-fundo-imagem"></div>
+              <div class="componente-visual-inicial">
+                <h2 class="componente-titulo">Codesys</h2>
+              </div>
+              <div class="componente-content">
+                <div class="componente-text">Clasificador de cajas por colores</div>
+                <h2 class="text">Automatización</h2>
+                <p class="text">Se desarrollo en Factory I/O (software para la automatización en tiempo real) una estación clasificadora
+                  de piezas por colores, la cual fue programada en el software Codesys.</p>
+                  <p class="text">Se busca implementar este sistema en las grandes industrias de tal forma que se puedan reducir
+                    tiempos y optimizar todo el proceso de clasificación de distintos objetos, piezas, según sea el ámbito
+                    en el que se aplique. De igual manera se prevee un beneficio sobresaliente para los operarios de tal
+                    forma que los riesgos de accidentes se disminuyan.
+                    </p>
+                    <strong class="text">Desarrollo</strong>
+                    <p class="text">En base a la problemática previamente establecida se realizó la automatización del proceso de
+                      clasificación en este caso de piezas por colores. Dicho proceso se realizó mediante el uso de 2
+                      softwares, Codesys y Factory I/O.
+                      </p>
+                      <img class="imgContenido3" src="./codesys/variables.png">
+                      <p class="text2">Clasificación de las variables de Codesys y Factory.</p>
+                      <p class="text">El proceso funciona de la siguiente forma:</p>
+                      <p class="lista">Tablero: el tablero es en donde se encuentra nuestro centro de control de todo el proceso y
+                        los elementos presentes en el son los siguientes.
+                        </p>
+                      <img class="imgContenido" src="./codesys/plc1.png">
+                      <p class="text2">Tablero de control en Codesys</p>
+                      <p class="lista">Inicio: su función es dar comienzo a todo el proceso, al momento de estar activo se visualiza
+                        la luz verde en un estado ON.</p>
+                        <p class="lista">Stop: detiene el proceso de manera precisa, paralizando todo tal cual se encuentra, al estar
+                          activo se visualiza la luz naranja en un estado ON, para salir de este estado hay que dar inicio
+                          de nueva cuenta y el proceso continua desde donde se había quedado.</p>
+                        <p class="lista">Reset: regresa los brazos a su estado OFF y reinicia los contadores, al estar activo se visualiza
+                          la luz amarilla en estado ON y queda listo para volver a iniciar.
+                        </p>
+                        <p class="lista">Paro de emergencia: detiene todo el proceso inmediatamente y comienza a sonar la alarma
+                          indicando que está en estado ON, al estar activo este estado es imposible iniciar el proceso ya
+                          que bloquea los 3 botones antes mencionados dejándolos inactivos hasta que el botón de paro
+                          sea desactivado. Al desactivarlo el proceso estará detenido en espera de la señal de inicio.</p>
+                        <p class="lista">Contadores: suma +1 y se visualizan en los distintos displays correspondientes a la pieza que
+                          se detecte por el sensor. La visualización es posible observarla en la parte inferior del tablero
+                          de control.</p>
+                          <img class="imgContenido" src="./codesys/plc2.png">
+                        <p class="text2">Bloque de función Contadores en Codesys</p>
+                        <p class="lista">Banda de inicio: encargada de que las piezas que están sobre ella lleguen a la segunda banda.
+                          Su funcionamiento depende del estado activo en el tablero de control y también de las
+                          condiciones puestas en la programación mismas que mandan la señal para que al momento
+                          en que una pieza pasa por el vision sensor se activa un TOF en la banda 1 y permanece enclavado hasta que el brazo que salió para clasificar a la pieza se retraiga y se repite ese
+                          proceso n veces.</p>
+                          <img class="imgContenido" src="./codesys/plc3.png">
+                        <p class="text2">Bloque de función de inicio en Codesys</p>
+                        <p class="lista">Detección de piezas: parte del proceso encargada de activar el movimiento de cualquiera de
+                          los 3 brazos, 1 a la vez, dependiendo que pieza sea censada por el vision sensor.</p>
+                          <img class="imgContenido" src="./codesys/plc4.png">
+                          <p class="text2">Detección de piezas en Codesys</p>
+                          <p class="lista">Banda 2 (brazos): al momento que la banda de cualquiera de los 3 brazos se activa manda
+                            una señal y activa en conjunto a su banda correspondiente para transportar la pieza a su
+                            destino, estas están programas con un TON de modo que al llegar la pieza al brazo se active
+                            su respectiva banda y activando a su vez las bandas finales.</p>
+                            <img class="imgContenido" src="./codesys/plc5.png">
+                            <p class="text2">Pou de la segunda banda en Codesys</p>
+                            <p class="lista">Final bandas: En esta etapa es la parte final de las bandas, las encargadas de hacer llegar las
+                              piezas a los contendores asignados.</p>
+                              <img class="imgContenido" src="./codesys/plc6.png">
+                              <p class="text2">Pou de las Bandas transportadoras finales en Codesys.</p>
+                              <img class="imgContenido" src="./codesys/plc7.png">
+                              <img class="imgContenido" src="./codesys/plc8.png">
+                              <p class="text2">PLC_PRG</p>
+                            <h2 class="text">Diagrama de flujo</h2>
+                            <img class="imgContenido" src="./codesys/flujo.png">
+                            <img class="imgContenido" src="./codesys/simu.png">
+                            <p class="text2">Clasificadora de piezas en Factory</p>
+                            
+                <div class="componente-botao-fechar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+          <div class="componente">
+            <div class="componente-sem-rolagem">
+              <div class="componente-interno">
+                <div class="componente-fundo-imagem"></div>
+                <div class="componente-visual-inicial">
+                  <h2 class="componente-titulo">Arduino</h2>
+                </div>
+                <div class="componente-content">
+                  <div class="componente-text">Arduino como tarjeta de adquisición de señales</div>
+                  <h2 class="text"> Procesamiento de señales en el dominio del tiempo</h2>
+                  <p class="text">Para utliza a arduino como una tarjeta de adquisicion vamos a subir el .ino que 
+                    nos va a permitir hacer uso del arduino y pósteriormente realizar la conexion en matlab con el puerto COM
+                    correspondiente.
+                  </p>
+                  <strong class="text">Actividades a desarrollar:</strong>
+                  <p class="textL">1.- Desarrollar en MATLAB-ARDUINO una interfaz de adquisición de datos. En la pantalla
+                    se debe desplegar en tiempo real la gráfica de la señal adquirida, el eje x debe ser
+                    respecto al tiempo. Los datos adquiridos se deben almacenar en un archivo.
+                    El sistema de adquisición se debe detener al terminar de muestrear.
+                    La frecuencia de muestreo Fs= 51.2 Hz, y el número de muestras N= 1024</p>
+                    <p class="textL">2.- Generar una señal cuadrada unipolar de 2 volts pico-pico a 1 Hz.
+                    </p>
+                    <p class="textL">3.-Implementar un filtro antialiasing de acuerdo a las características de la señal a
+                      muestrear.
+                      </p>
+                    <p class="textL">4.- Adquirir, graficar en MATLAB y almacenar los datos en un archivo.
+                    </p>
+                    <div class="espacio">
+                    <strong class="text">CASO DE ESTUDIO 1:</strong>
+                    <p class="textL">1.- Seleccionar un segmento de 1024 datos de la señal almacenada.
+                    </p>
+                    <p class="textL">2.- Graficar en MATLAB el segmento seleccionado de la señal.</p>
+                    <p class="textL">3.- Obtener y graficar en MATLAB el espectro de frecuencia de los 1024 datos
+                      seleccionados.</p>
+                    <p class="textL">4.- Obtener y graficar en AUTOSIGNAL el espectro de frecuencia de los 1024 datos
+                      seleccionados.</p>
+                    </div>
+                    <div class="espacio">
+                    <strong class="text">CASO DE ESTUDIO 2:</strong>
+                    <p class="textL">1.- Seleccionar un segmento de 1000 datos de la señal almacenada.</p>
+                    <p class="textL">2.- Graficar en MATLAB el segmento seleccionado de la señal.</p>
+                    <p class="textL">3.- Obtener y graficar en MATLAB el espectro de frecuencia de los 1000 datos
+                      seleccionados.
+                      </p>
+                    <p class="textL">4.- Obtener y graficar en AUTOSIGNAL el espectro de frecuencia de los 1000 datos
+                      seleccionados.</p>
+                    </div>
+                    <div class="espacio">
+                    <strong class="text">CASO DE ESTUDIO 3:</strong>
+                    <p class="textL">1.- Seleccionar un segmento de 130 datos de la señal almacenada
+                    </p>
+                    <p class="textL">2.- Graficar en MATLAB el segmento seleccionado de la señal.</p>
+                    <p class="textL">3.- Obtener y graficar en MATLAB el espectro de frecuencia de los 130 datos
+                      seleccionados.
+                      </p>
+                    <p class="textL">4.- Obtener y graficar en AUTOSIGNAL el espectro de frecuencia de los 130 datos
+                      seleccionados</p>
+                    </div>
+                    <div class="espacio">
+                    <strong class="text">Características de la señal adquirida:</strong>
+                    <p class="textL">Forma de onda: Cuadrada</p>
+                    <p class="textL">Amplitud:1.99 v</p>
+                    <p class="textL">Frecuencia:1 Hz</p>
+                    <p class="textL">Período: 1 s</p>
+                    </div>
+                    <div class="espacio">
+                      <strong class="text">Características del filtro antialiasing:</strong>
+                      <p class="textL">Nombre del tipo de filtro: Pasivo pasa bajos</p>
+                      <p class="textL">Frecuencia de corte: 5 Hz</p>
+                      </div>
+                    <p class="text">Diagrama electrónico y cálculos del filtro antialiasing:</p>
+                    <p class="text">Cálculo:</p>
+                    <div class="centro">
+                      <img class="imgContenido" src="./arduino/formula.png">
+                    </div>
+                    <p class="text">Diagrama</p>
+                    <div class="centro">
+                      <img class="imgContenido" src="./arduino/filtro.png">
+                    </div>
+                    <p class="text">Código de MATLAB (comentado):</p>
+                    <div class="centro">
+                      <img class="imgContenido" src="./arduino/codeMat1.png">
+                      <img class="imgContenido" src="./arduino/codeMat2.png">
+                    </div>
+                    
+                    <div class="centro">
+                      <strong class="text">Resultado Caso 1</strong>
+                      <img class="imgContenido" src="./arduino/GUI1.png">
+                      <p class="text">Gráfica en MATLAB de 1024 muestras de señal adquirida</p>
+                      <img class="imgContenido" src="./arduino/GUI2.png">
+                      <p class="text">Espectro de señal en MATLAB de 1024 muestras de señal adquirida</p>
+                      <img class="imgContenido" src="./arduino/GUI3.png">
+                      <p class="text">Espectro de señal en AUTOSIGNAL de 1024 muestras de señal adquirida</p>
+                    </div>
+                    
+                    <div class="centro">
+                      <strong class="text">Resultado Caso 2</strong>
+                      <img class="imgContenido" src="./arduino/GUI4.png">
+                      <p class="text">Gráfica en MATLAB de 1000 muestras de señal adquirida:</p>
+                      <img class="imgContenido" src="./arduino/GUI5.png">
+                      <p class="text">Espectro de señal en MATLAB de 1000 muestras de señal adquirida</p>
+                      <img class="imgContenido" src="./arduino/GUI6.png">
+                      <p class="text">Espectro de señal en AUTOSIGNAL de 1000 muestras de señal adquirida</p>
+                    </div>
+                    
+                    <div class="centro">
+                      <strong class="text">Resultado Caso 3</strong>
+                      <img class="imgContenido" src="./arduino/GUI7.png">
+                      <p class="text">Gráfica en MATLAB de 130 muestras de señal adquirida</p>
+                      <img class="imgContenido" src="./arduino/GUI8.png">
+                      <p class="text">Espectro de señal en MATLAB de 130 muestras de señal adquirida</p>
+                      <img class="imgContenido" src="./arduino/GUI9.png">
+                      <p class="text">Espectro de señal en AUTOSIGNAL de 130 muestras de señal adquirida</p>
+                    </div>
+                    <strong class="text">Conclusión</strong>
+                    <p class="text">Los resultados fueron los esperados, ya que la FFT nos muestra en la gráfica un pico
+                      predominante la cual fue de 1hz, sin embargo, la amplitud baja a la hora de aplicar la FFT a
+                      casi la mitad. Al reducir el número de muestras la gráfica de la FFT es menos exacta en los
+                      resultados.
+                      </p>
+                    <p class="text">La transformada rápida de Fourier nos ayuda a encontrar todas las frecuencias que se
+                      encuentran en nuestra señal muestreada, mostrándonos gráficamente cuáles
+                      predominan; es interesante saber que, aunque no nos demos cuenta las señales que
+                      obtenemos y creemos que es únicamente de una frecuencia que establecemos contiene
+                      múltiples señales que pueden afectar en nuestros análisis.
+                      </p>
+                  <div class="componente-botao-fechar"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <div class="componente">
+          <div class="componente-sem-rolagem">
+            <div class="componente-interno">
+              <div class="componente-fundo-imagem"></div>
+              <div class="componente-visual-inicial">
+                <h2 class="componente-titulo">Python</h2>
+              </div>
+              <div class="componente-content">
+                <div class="componente-text">Visión Artificial</div>
+                  <h2 class="text">Detección de placas vehiculares</h2>
+                  <p class="text">Primero importamos las librerías que usaremos escribiendo “import + nombre de la librería”.
+                  </p>
+                  <img class="imgContenido" src="./vision/librerias.png">
+                  <p class="text">Podemos escribir “placa=[]”, esto significa que vamos a tener una variable llamada placa la cual
+                    estará vacía al inicio (se ocupara más tarde).</p>
+                  <p class="text">Hay dos formas por como podemos identificar a nuestra placa, uno usando la detección de
+                    bordes por medio de “canny” o identificar la placa por medio de detección de colores usando
+                    limites en escala HSV.</p>
+                    <img class="imgContenido" src="./vision/moto.png">
+                    <p class="text2">Visión con contornos, Vision con colores HSV</p>
+                    <p class="text">Una vez teniendo los valores del color que quiero, escribo los limites inferiores y
+                      superiores buscando que los valores que obtuve queden en medio.
+                      </p>
+                      <img class="imgContenido" src="./vision/limitColor.png">
+                      <p class="text">Estos limites se guarda en una mascara para posteriormente aplicarle el algoritmo canny
+                      </p>
+                      <img class="imgContenido" src="./vision/mascara..png">
+                      <img class="imgContenido2" src="./vision/maskPlaca..png">
+                      <div class="caja">
+                        <p class="text">Este es el resultado de la detección de
+                          colores. Los bordes no esta bien definidos
+                          por lo cual con la función cv2.dilate en
+                          iterations=3 se engruesa un poco mas los
+                          bordes.</p>
+                      </div>
+                      <p class="text">Usando la funcion “findContours” econtraremos los contornos que tengamos en la
+                        variable “canny” donde tenemos la placa dectada.</p>
+                        <img class="imgContenido" src="./vision/contornos..png">
+                        <p class="text">Escribiremos un ciclo for para el findcontours y dentro del ciclo pondremos las funciones
+                          cv2 “contourArea”, “boundingReact”, “arcLength”. que nos servirán para encontrar las
+                          áreas que hay dentro de la máscara que se está analizando.</p>
+                          <p class="text">Escribimos una línea de impresión de área, corremos el programa y en la consola
+                            observamos las áreas que nos arroja. En mi caso pude notar que había un área muy
+                            grande y las otras era menos. Entonces puse un condicional “if” poniendo como limite el
+                            área mayor para que las áreas pequeñas no sean tomadas en cuenta.
+                            </p>
+                            <img class="imgContenido" src="./vision/area..png">
+                            <p class="text">Y por último con la funcion cv2 “drawContours” dibujaremos el contorno de la placa sobre
+                              la imagen original.</p>
+                              <img class="imgContenido3" src="./vision/detec.png">
+                              <p class="text">Al final como ya tenemos ubicada la placa, con la ayuda de pytesseract y Tesseract-OCR
+                                haremos un recorte de la placa mediante la siguiente línea:</p>
+                                <img class="imgContenido" src="./vision/xyPlaca.png">
+                                <p class="text">Y con la siguiente línea se usará el aprendizaje de la base de datos de tesseract para
+                                  detectar lo que está escrito dentro de la placa. </p>
+                                  <img class="imgContenido" src="./vision/xyPlacaID.png">
+                                <p class="text">Estos serían los resultados obtenidos:</p>
+                                <img class="imgContenido" src="./vision/motoDetec.png">
+                <div class="componente-botao-fechar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="componente">
+          <div class="componente-sem-rolagem">
+            <div class="componente-interno">
+              <div class="componente-fundo-imagem"></div>
+              <div class="componente-visual-inicial">
+                <h2 class="componente-titulo">Matlab</h2>
+              </div>
+              <div class="componente-content">
+                <div class="componente-text">Control difuso de un invernadero</div>
+                <p class="text">La planta cuenta con un sensor de calor (lm35) el cual nos censa la temperatura del foco al
+                  encenderse, la planta tratará de mantener la misma temperatura por lo que la luminiscencia del foco
+                  será variable.
+                  </p>
+                  <p class="text">En esta ocasión se usará la Liberia fuzzy en Matlab para realizar el control difuso.</p>
+                  <div class="centro">
+                    <img class="imgContenido" src="./mat/fuzzy1.png">
+                    <p class="text">Fuzzy general</p>
+                  </div>
+                  <p class="text"><bold>Funciones de membresía del error:</p></bold>
+                    <img class="imgContenido" src="./mat/fuzzy2.png">
+                  <p class="text"><bold>Funciones de membresía de la salida:</p></bold>
+                    <img class="imgContenido" src="./mat/fuzzy3.png">
+                  <div class="centro">
+                    <img class="imgContenido" src="./mat/fuzzy4.png">
+                    <p class="text">Parámetros del error MN</p>
+                    <img class="imgContenido" src="./mat/fuzzy5.png">
+                    <p class="text">Parámetros del error PN</p>
+                    <img class="imgContenido" src="./mat/fuzzy6.png">
+                    <p class="text">Parámetros del error z</p>
+                    <img class="imgContenido" src="./mat/fuzzy7.png">
+                    <p class="text">Parámetros del error PP</p>
+                    <img class="imgContenido" src="./mat/fuzzy8.png">
+                    <p class="text">Parámetros del error MP</p>
+                    <img class="imgContenido" src="./mat/fuzzy9.png">
+                    <p class="text">Función de salida apagado</p>
+                    <img class="imgContenido" src="./mat/fuzzy10.png">
+                    <p class="text">Función de salida MApagado</p>
+                    <img class="imgContenido" src="./mat/fuzzy11.png">
+                    <p class="text">Función de salida Mencendido.</p>
+                    <img class="imgContenido" src="./mat/fuzzy12.png">
+                    <p class="text">Función de salida Encendido</p>
+                    <img class="imgContenido" src="./mat/fuzzy13.png">
+                    <p class="text">Reglas</p>
+                  </div>
+                  <p class="text">Posterior a esto convertimos el archivo que nos dio Matlab a Arduino y subimos a nuestra placa
+                    Arduino uno.</p>
+                    <div class="centro">
+                      <img class="imgContenido" src="./mat/fuzzy14.png">
+                    </div>
+
+                <div class="componente-botao-fechar"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+  
+    <script src="./script/script.js"></script>
+  </div>
+  </div>
+
+  <script>
+    // Regresa al inico
+    const nav = document.querySelector('#main');
+    let topOfNav = nav.offsetTop;
+    function fixNav() {
+      if (window.scrollY >= topOfNav) {
+        document.body.style.paddingTop = nav.offsetHeight + 'px';
+        document.body.classList.add('fixed-nav');
+      } else {
+        document.body.classList.remove('fixed-nav');
+        document.body.style.paddingTop = 0;
+      }
+    }
+
+    window.addEventListener('scroll', fixNav);
+  /*Luz de navagacion*/
+  const triggers = document.querySelectorAll('a');
+  const highlight = document.createElement('span');
+  highlight.classList.add('highlight');
+  document.body.appendChild(highlight);
+
+  function highlightLink() {
+    const linkCoords = this.getBoundingClientRect();
+    console.log(linkCoords);
+    const coords = {
+      width: linkCoords.width,
+      height: linkCoords.height,
+      top: linkCoords.top + window.scrollY,
+      left: linkCoords.left + window.scrollX
+    };
+
+    highlight.style.width = `${coords.width}px`;
+    highlight.style.height = `${coords.height}px`;
+    highlight.style.transform = `translate(${coords.left}px, ${coords.top}px)`;
+
+  }
+
+  triggers.forEach(a => a.addEventListener('mouseenter', highlightLink));
+  /*Luz de nav*/
+  </script>
+
+
+</body>
+</html>
